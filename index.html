@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Koyena Chowdhury | Ph.D. Researcher, IIT Kharagpur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --ink:        #0d0f12;
+      --ink-muted:  #4a4e5a;
+      --ink-faint:  #9399a6;
+      --paper:      #faf9f6;
+      --paper-warm: #f4f1eb;
+      --line:       #e2ddd6;
+      --accent:     #1a3a5c;
+      --accent-2:   #c0392b;
+      --accent-glow:#2563a8;
+      --gold:       #b8960c;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'DM Sans', sans-serif;
+      --mono:       'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* ─── HEADER HERO ─── */
+    .hero {
+      background: var(--accent);
+      color: white;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 39px,
+          rgba(255,255,255,0.04) 39px,
+          rgba(255,255,255,0.04) 40px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 39px,
+          rgba(255,255,255,0.04) 39px,
+          rgba(255,255,255,0.04) 40px
+        );
+      animation: gridDrift 30s linear infinite;
+    }
+
+    @keyframes gridDrift {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 40px 40px, 40px 40px; }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px 50px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+    }
+
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 5rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-photo-frame {
+      position: absolute;
+      top: -6px; left: -6px;
+      width: 200px; height: 200px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      animation: framePulse 4s ease-in-out infinite;
+    }
+
+    @keyframes framePulse {
+      0%, 100% { transform: scale(1.04); opacity: 0.3; }
+      50%       { transform: scale(1.08); opacity: 0.6; }
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-2);
+      color: white;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      padding: 3px 10px;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      border-radius: 2px;
+    }
+
+    .hero-info h1 {
+      font-family: var(--serif);
+      font-size: 3.6rem;
+      font-weight: 500;
+      line-height: 1.05;
+      color: #fff;
+      letter-spacing: -1px;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-info h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-tagline {
+      margin-top: 14px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.03em;
+      animation: fadeUp 0.9s 0.15s ease both;
+    }
+
+    .hero-tagline strong {
+      color: rgba(255,255,255,0.95);
+      font-weight: 500;
+    }
+
+    .hero-chips {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      animation: fadeUp 0.9s 0.25s ease both;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      padding: 5px 13px;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+
+    .chip:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .chip a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .chip .icon { font-size: 0.72rem; opacity: 0.7; }
+
+    .hero-links {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: fadeUp 0.9s 0.35s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--paper-warm);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-color: rgba(255,255,255,0.6);
+      transform: translateY(-1px);
+    }
+
+    /* ─── NAV BAR ─── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: var(--accent);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      padding: 14px 0;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2px;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 14px 16px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s, background 0.2s;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    .main-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 40px 80px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      position: sticky;
+      top: 60px;
+    }
+
+    .sidebar-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      animation: fadeIn 0.8s ease both;
+    }
+
+    .sidebar-card h3 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      letter-spacing: 0.02em;
+    }
+
+    .sidebar-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+    }
+
+    .sidebar-contact-item .icon {
+      color: var(--accent);
+      margin-top: 1px;
+      width: 14px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-contact-item a {
+      color: var(--accent-glow);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .sidebar-contact-item a:hover { text-decoration: underline; }
+
+    .interest-tag {
+      display: inline-flex;
+      align-items: center;
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      color: var(--ink-muted);
+      padding: 4px 10px;
+      margin: 3px;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .interest-tag:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-box {
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+
+    .stat-box .number {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-box .label {
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      margin-top: 4px;
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ─── CONTENT ─── */
+    .content { }
+
+    .section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-text {
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-muted);
+    }
+
+    .about-text p + p { margin-top: 14px; }
+
+    .about-text a {
+      color: var(--accent-glow);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37,99,168,0.3);
+      transition: border-color 0.2s;
+    }
+
+    .about-text a:hover { border-color: var(--accent-glow); }
+
+    .highlight-word {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ─── PUBLICATIONS ─── */
+    .pub-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      transition: all 0.25s;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+
+    .pub-card:hover {
+      border-left-color: var(--accent-2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+      transform: translateX(3px);
+    }
+
+    .pub-year {
+      display: inline-flex;
+      background: var(--accent);
+      color: white;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+    }
+
+    .pub-venue-badge {
+      display: inline-flex;
+      margin-left: 6px;
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      color: var(--ink-muted);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .pub-venue-badge.under-review {
+      background: #fff8e1;
+      border-color: #f9c74f;
+      color: #7d6608;
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .pub-authors {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .pub-authors strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .pub-venue {
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .pub-link.paper {
+      background: var(--accent);
+      color: white;
+    }
+
+    .pub-link.paper:hover {
+      background: var(--accent-glow);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(26,58,92,0.3);
+    }
+
+    .pub-link.arxiv {
+      background: #b31b1b;
+      color: white;
+    }
+
+    .pub-link.arxiv:hover {
+      background: #901616;
+      transform: translateY(-1px);
+    }
+
+    .pub-link.scholar {
+      background: var(--paper-warm);
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .pub-link.scholar:hover {
+      background: var(--line);
+      transform: translateY(-1px);
+    }
+
+    /* ─── EDUCATION ─── */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 22px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: 39px;
+      top: 36px;
+      bottom: -28px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .edu-item:last-child::before { display: none; }
+
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      text-align: right;
+      padding-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .edu-body {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .edu-body::before {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--paper);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .edu-inst {
+      font-size: 0.85rem;
+      color: var(--accent-glow);
+      margin-top: 2px;
+    }
+
+    .edu-score {
+      display: inline-block;
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .edu-detail {
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── AWARDS ─── */
+    .awards-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .award-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 14px 18px;
+      transition: all 0.2s;
+    }
+
+    .award-item:hover {
+      border-color: var(--gold);
+      background: #fffdf5;
+      transform: translateX(3px);
+    }
+
+    .award-icon {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .award-text {
+      flex: 1;
+      font-size: 0.87rem;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .award-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .award-year {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    /* ─── TEACHING ─── */
+    .teach-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.87rem;
+      color: var(--ink-muted);
+    }
+
+    .teach-item:last-child { border-bottom: none; }
+
+    .teach-item .year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+    }
+
+    /* ─── PROJECTS ─── */
+    .project-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 22px 24px;
+      margin-bottom: 14px;
+      transition: all 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(26,58,92,0.1);
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      background: var(--paper-warm);
+      color: var(--accent);
+      border: 1px solid rgba(26,58,92,0.15);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin: 8px 3px 0 0;
+    }
+
+    /* ─── LEADERSHIP ─── */
+    .leadership-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .leadership-item:last-child { border-bottom: none; }
+
+    .leadership-title {
+      font-size: 0.87rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .leadership-desc {
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      margin-top: 2px;
+    }
+
+    .leadership-year {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px;
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: white; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ─── SCROLL PROGRESS ─── */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-2), var(--gold));
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ─── BACK TO TOP ─── */
+    .back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.3s;
+      z-index: 800;
+      text-decoration: none;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-top:hover {
+      background: var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .hero-photo-wrap { display: flex; justify-content: center; }
+      .hero-chips, .hero-links { justify-content: center; }
+
+      .main-wrapper {
+        grid-template-columns: 1fr;
+        padding: 32px 24px 60px;
+        gap: 40px;
+      }
+
+      .sidebar { position: static; }
+
+      .nav-inner { flex-wrap: wrap; }
+
+      .edu-item { grid-template-columns: 64px 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-info h1 { font-size: 2.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 12px 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <span class="nav-logo">K. Chowdhury</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#awards">Awards</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="photo.jpg" alt="Koyena Chowdhury" style="width:100%;height:100%;object-fit:cover;"/>
+        <div class="hero-photo-frame"></div>
+      </div>
+      <div class="hero-photo-badge">Ph.D. SRF · IIT KGP</div>
+    </div>
+    <div class="hero-info">
+      <h1>Koyena <em> Chowdhury</em></h1>
+      <p class="hero-tagline">
+        Ph.D. Senior Research Fellow · <strong>CSE, IIT Kharagpur</strong><br>
+        <!-- AI for Transportation · Graph Neural Networks · Complex Networks -->
+      </p>
+      <div class="hero-chips">
+        <span class="chip"><span class="icon">📍</span>Kharagpur, West Bengal, India</span>
+        <!-- <span class="chip"><span class="icon">🏛️</span> CNerRG Lab</span> -->
+        <!-- <span class="chip"><span class="icon">🎓</span> GATE 96.42 Percentile</span> -->
+        <!-- <span class="chip"><span class="icon">📄</span> 4 Publications</span> -->
+      </div>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="koyena-chowdhury-cv.pdf" download>
+          <i class="fas fa-download"></i> Download CV
+        </a>
+        <a class="btn btn-outline" href="https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl" target="_blank">
+          <i class="fas fa-graduation-cap"></i> Google Scholar
+        </a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/koyena-chowdhury-bb0b53292/" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a class="btn btn-outline" href="https://koyenachowdhury.github.io/" target="_blank">
+          <i class="fas fa-globe"></i> Website
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <h3>Contact</h3>
+      <div class="sidebar-contact-item">        
+        <div>
+          <i class="fas fa-envelope icon"></i>
+          <a href="mailto:koyenachowdhury02@gmail.com">koyenachowdhury02@gmail.com</a><br>
+          <i class="fas fa-envelope icon"></i>
+          <a href="mailto:koyenachowdhury@kgpian.iitkgp.ac.in">koyenachowdhury@kgpian.iitkgp.ac.in</a>
+        </div>
+      </div>
+     <!-- <div class="sidebar-contact-item">
+        <i class="fab fa-linkedin icon"></i>
+        <a href="https://www.linkedin.com/in/koyena-chowdhury-bb0b53292/" target="_blank">LinkedIn Profile</a>
+      </div>
+      <div class="sidebar-contact-item">
+        <i class="fas fa-graduation-cap icon"></i>
+        <a href="https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl" target="_blank">Google Scholar</a>
+      </div>
+      <div class="sidebar-contact-item">
+        <i class="fas fa-globe icon"></i>
+        <a href="https://koyenachowdhury.github.io/" target="_blank">Personal Website</a>
+      </div> -->
+    </div>
+
+   <!-- <div class="sidebar-card">
+      <h3>Quick Stats</h3>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="number">4</div>
+          <div class="label">Papers</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">3</div>
+          <div class="label">Grants</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">9.28</div>
+          <div class="label">M.Tech CGPA</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">96<span style="font-size:1rem">%</span></div>
+          <div class="label">GATE %ile</div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="sidebar-card">
+      <h3>Research Interests</h3>
+      <span class="interest-tag">Graph Neural Networks</span>
+      <span class="interest-tag">Transportation Analytics</span>
+      <span class="interest-tag">Spatio-Temporal Models</span>
+      <span class="interest-tag">Complex Networks</span>
+      <span class="interest-tag">Graph Theory</span>
+      <span class="interest-tag">Influence Maximization</span>
+      <span class="interest-tag">Node Detection</span>
+      <span class="interest-tag">LLMs</span>
+      <span class="interest-tag">Time-Series Forecasting</span>
+      <span class="interest-tag">Network Growth Modeling</span>
+    </div>
+
+    <!-- <div class="sidebar-card">
+      <h3>Technical Skills</h3>
+      <div style="margin-bottom:10px;">
+        <div style="font-size:0.72rem;font-family:var(--mono);color:var(--ink-faint);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;">Languages</div>
+        <span class="interest-tag">Python</span>
+        <span class="interest-tag">C/C++</span>
+        <span class="interest-tag">Java</span>
+        <span class="interest-tag">SQL</span>
+      </div>
+      <div>
+        <div style="font-size:0.72rem;font-family:var(--mono);color:var(--ink-faint);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;">Frameworks</div>
+        <span class="interest-tag">PyTorch</span>
+        <span class="interest-tag">TensorFlow</span>
+        <span class="interest-tag">Keras</span>
+        <span class="interest-tag">NetworkX</span>
+        <span class="interest-tag">Scikit-learn</span>
+        <span class="interest-tag">NumPy</span>
+        <span class="interest-tag">Pandas</span>
+      </div>
+    </div> -->
+
+    <div class="sidebar-card" style="background:var(--accent);border-color:var(--accent);">
+      <p style="color:rgba(255,255,255,0.9);font-size:0.87rem;line-height:1.6;">
+        Open to research collaborations, academic lectures and visits, and industrial internships in AI/ML Domain.
+      </p>
+      <a href="mailto:koyenachowdhury02@gmail.com" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:white;font-size:0.8rem;font-family:var(--mono);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;">
+        <i class="fas fa-paper-plane"></i> Get in touch
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <div class="section-line"></div>
+        <span class="section-num">01</span>
+      </div>
+      <div class="about-text">
+        <p>
+          I am a <span class="highlight-word">Ph.D. Senior Research Fellow</span> in Computer Science and Engineering at the
+          <a href="https://cnerg-iitkgp.github.io/" target="_blank">CNerRG Lab</a>, IIT Kharagpur, supervised by
+          <a href="https://sites.google.com/site/saptarshighosh/" target="_blank">Prof. Saptarshi Ghosh</a>.
+          My doctoral research focuses on the <span class="highlight-word">application of AI in analyzing and optimizing Indian Railways</span> —
+          one of the world's largest and most complex transportation networks. I develop <span class="highlight-word">Graph Neural Networks</span> and <span class="highlight-word">spatio-temporal deep learning</span>
+          models that capture the intricate dependency structures of railway networks to predict train delays,
+          optimize platform allocation, and model network growth over decades. 
+        </p>
+        <p>
+          Before IIT Kharagpur, I completed my M.Tech. at <span class="highlight-word">NIT Durgapur</span> with a 9.28 CGPA
+          (2nd Rank), where I worked on influence maximization and influential node detection in social networks and have recieved the Best Project Award in CSE department.
+          I hold a B.Tech. from Academy of Technology with a 9.50 CGPA (2nd Rank).
+        </p>
+        <p>
+          Beyond research, I am passionate about teaching AI to practitioners — from government officials to
+          ISS probationers — and have delivered lectures on AI, GNNs, and data science at various platforms. I have mentored
+          several B.Tech., M.Tech., and dual-degree students in their research projects and have been a teaching assistant for various courses.
+        </p>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Publications</h2>
+        <div class="section-line"></div>
+        <span class="section-num">02</span>
+      </div>
+
+      <!-- Paper 1 -->
+      <div class="pub-card">
+        <div>
+          <span class="pub-year">2025</span>
+          <span class="pub-venue-badge under-review">Under Review · IEEE T-ITS</span>
+        </div>
+        <div class="pub-title">
+          RSTGCN: Railway-centric Spatio-Temporal Graph Convolutional Network for Train Delay Prediction
+        </div>
+        <div class="pub-authors">
+          <strong>Koyena Chowdhury</strong>, Paramita Koley, Abhijnan Chakraborty, and Saptarshi Ghosh
+        </div>
+        <div class="pub-venue">
+          Under Review at IEEE Transactions on Intelligent Transportation Systems (T-ITS) · Available on ArXiv
+        </div>
+        <div class="pub-links">
+          <a class="pub-link arxiv" href="https://arxiv.org/abs/2510.01262" target="_blank">
+            <i class="fas fa-file-alt"></i> ArXiv
+          </a>
+          <!-- <a class="pub-link scholar" href="https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl" target="_blank">
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="pub-card">
+        <div>
+          <span class="pub-year">2025</span>
+          <span class="pub-venue-badge">ACM CODS</span>
+        </div>
+        <div class="pub-title">
+          CancelOut CommGCN (CCGCN): Influence Maximization on Social Networks based on Communities
+        </div>
+        <div class="pub-authors">
+          <strong>Koyena Chowdhury</strong>, Amit Paul, and Animesh Dutta
+        </div>
+        <div class="pub-venue">
+          Proceedings of the 13th ACM IKDD International Conference on Data Science (CODS), pp. 27–34, 2025
+        </div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://dl.acm.org/doi/full/10.1145/3799830.3799834" target="_blank">
+            <i class="fas fa-external-link-alt"></i> ACM DL · DOI
+          </a>
+          <!-- <a class="pub-link scholar" href="https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl" target="_blank">
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Paper 3 -->
+      <div class="pub-card">
+        <div>
+          <span class="pub-year">2023</span>
+          <span class="pub-venue-badge">IEEE COMSNETS</span>
+        </div>
+        <div class="pub-title">
+          CancelOut GCN Diffusion (CoutGCN): Finding the Influential Spreaders to Diffuse Information
+        </div>
+        <div class="pub-authors">
+          <strong>Koyena Chowdhury</strong>, Amit Paul, Animesh Dutta
+        </div>
+        <div class="pub-venue">
+          15th International Conference on Communication Systems &amp; Networks (COMSNETS), IEEE, 2023
+        </div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://ieeexplore.ieee.org/abstract/document/10041335" target="_blank">
+            <i class="fas fa-external-link-alt"></i> IEEE Xplore
+          </a>
+          <!-- <a class="pub-link scholar" href="https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl" target="_blank">
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Paper 4 -->
+      <div class="pub-card">
+        <div>
+          <span class="pub-year">2023</span>
+          <span class="pub-venue-badge">IEEE COMSNETS</span>
+        </div>
+        <div class="pub-title">
+          Semi-Global Circular Centrality to find Influential Spreaders
+        </div>
+        <div class="pub-authors">
+          Anju Bhuiya, <strong>Koyena Chowdhury</strong>, Suman Nandi, Animesh Dutta
+        </div>
+        <div class="pub-venue">
+          15th International Conference on Communication Systems &amp; Networks (COMSNETS), IEEE, 2023
+        </div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://ieeexplore.ieee.org/abstract/document/10041382" target="_blank">
+            <i class="fas fa-external-link-alt"></i> IEEE Xplore
+          </a>
+          <!-- <a class="pub-link scholar" href="https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl" target="_blank">
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a> -->
+        </div>
+      </div>
+
+    <!-- </section>
+
+     ONGOING PROJECTS 
+    <section id="projects" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Ongoing Projects</h2>
+        <div class="section-line"></div>
+        <span class="section-num">03</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Indian Railway Evolution (1991–2026)</div>
+        <div class="project-desc">
+          Temporal network analysis and growth-model simulation of Indian Railways over 35 years.
+          Studying how the network structure, connectivity, and delay propagation patterns have evolved
+          using graph-theoretic methods and spatio-temporal models.
+        </div>
+        <span class="project-tag">Temporal Networks</span>
+        <span class="project-tag">Network Growth</span>
+        <span class="project-tag">Railway Analytics</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Kharagpur Platform Allocator</div>
+        <div class="project-desc">
+          AI-assisted train–platform assignment under operational constraints.
+          Formulating the platform allocation problem as a constrained optimization task
+          and solving it with learning-based methods that account for delays, passenger flow, and scheduling.
+        </div>
+        <span class="project-tag">Optimization</span>
+        <span class="project-tag">AI Planning</span>
+        <span class="project-tag">Operations Research</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Multi-Country Railway Networks</div>
+        <div class="project-desc">
+          Comparative analysis of railway network structure and delay dynamics across countries.
+          Understanding universal vs. country-specific patterns in how delay propagates through
+          different infrastructure topologies and operational regimes.
+        </div>
+        <span class="project-tag">Comparative Analysis</span>
+        <span class="project-tag">GNN</span>
+        <span class="project-tag">Delay Prediction</span>
+      </div>
+
+    </section> -->
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+        <span class="section-num">04</span>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2023<br>–&nbsp;Now</div>
+        <div class="edu-body">
+          <div class="edu-degree">Ph.D., Computer Science and Engineering</div>
+          <div class="edu-inst">Indian Institute of Technology (IIT) Kharagpur · <a href="https://cnerg-iitkgp.github.io/" target="_blank" style="color:inherit;text-decoration:underline;">CNerRG Lab</a></div>
+          <div class="edu-score">CGPA: 8.07 / 10</div>
+          <div class="edu-detail">
+            Supervisor: <a href="https://sites.google.com/site/saptarshighosh/" target="_blank" style="color:var(--accent-glow);text-decoration:none;">Prof. Saptarshi Ghosh</a><br>
+            Thesis: Application of AI in Analyzing and Optimizing Indian Railways
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2021<br>–&nbsp;2023</div>
+        <div class="edu-body">
+          <div class="edu-degree">M.Tech., Computer Science and Engineering</div>
+          <div class="edu-inst">National Institute of Technology (NIT) Durgapur</div>
+          <div class="edu-score">CGPA: 9.28 / 10 · 2nd Rank</div>
+          <div class="edu-detail">
+            Supervisor: <a href="https://nitdgp.ac.in/department/computer-science-engineering/faculty-1/animesh-dutta" target="_blank" style="color:var(--accent-glow);text-decoration:none;">Prof. Animesh Dutta</a><br>
+            Thesis: Influence Maximization and Ranking of Influential Spreaders in Social Networks
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2017<br>–&nbsp;2021</div>
+        <div class="edu-body">
+          <div class="edu-degree">B.Tech., Computer Science and Engineering</div>
+          <div class="edu-inst">Academy of Technology (AOT), MAKAUT, Adisaptagram</div>
+          <div class="edu-score">CGPA: 9.50 / 10 · 2nd Rank</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2017</div>
+        <div class="edu-body">
+          <div class="edu-degree">Higher Secondary (WBCHSE)</div>
+          <div class="edu-inst">Baidyabati Charushila Bose Balika Vidyalaya, Hooghly</div>
+          <div class="edu-score">88.2%</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2015</div>
+        <div class="edu-body">
+          <div class="edu-degree">Secondary (WBBSE)</div>
+          <div class="edu-inst">St. Anthony's High School, Chandannagore, Hooghly</div>
+          <div class="edu-score">87%</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Teaching Experience</h2>
+        <div class="section-line"></div>
+        <span class="section-num">05</span>
+      </div>
+
+      <div class="teach-item">
+        <span>Hands-on Sessions for Directors-level Govt. Officials — AI &amp; Big Data, IIT Kharagpur</span>
+        <span class="year">2026</span>
+      </div>
+      <div class="teach-item">
+        <span>Hands-on Training Sessions for ISS Probationers — AI &amp; Big Data, IIT Kharagpur</span>
+        <span class="year">2026</span>
+      </div>
+      <div class="teach-item">
+        <span>Invited Resource Person, ACM Winter School — Responsible AI, XIM University, Bhubaneswar</span>
+        <span class="year">2025</span>
+      </div>
+      <div class="teach-item">
+        <span>Hands-on Workshop for IOCL Govt. Officials — Advanced AI &amp; ML, IIT Kharagpur</span>
+        <span class="year">2025</span>
+      </div>
+      <div class="teach-item">
+        <span>Lab Sessions, Mid-Career Training Program for ISS Officers — AI &amp; Big Data, IIT Kharagpur</span>
+        <span class="year">2024</span>
+      </div>
+      <div class="teach-item">
+        <span>Teaching Assistant — NLP '26, '25, '24 · Data Analytics '25, '24 — IIT Kharagpur</span>
+        <span class="year">2023–</span>
+      </div>
+      <div class="teach-item">
+        <span>Teaching Assistant — Distributed Systems '23 · DBMS Lab '23 · Data Structures '22 — NIT Durgapur</span>
+        <span class="year">2021–23</span>
+      </div>
+
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Leadership &amp; Service</h2>
+        <div class="section-line"></div>
+        <span class="section-num">06</span>
+      </div>
+
+      <div class="leadership-item">
+        <div>
+          <div class="leadership-title">RS Representative, CSE Department — IIT Kharagpur</div>
+          <div class="leadership-desc">Certificate of Appreciation by Dean (FoE&amp;A)</div>
+        </div>
+        <div class="leadership-year">2025–2026</div>
+      </div>
+
+      <div class="leadership-item">
+        <div>
+          <div class="leadership-title">
+            Social Media Manager, <a href="https://cnerg-iitkgp.github.io/" target="_blank" style="color:inherit;">CNeRG Lab</a>
+            · <a href="https://www.linkedin.com/company/iitkgpcnerg/?originalSubdomain=in" target="_blank" style="color:var(--accent-glow);"><i class="fab fa-linkedin"></i></a>
+            · <a href="https://x.com/cnerg" target="_blank" style="color:var(--accent-glow);"><i class="fab fa-x-twitter"></i></a>
+          </div>
+          <div class="leadership-desc">Managing online research visibility and outreach</div>
+        </div>
+        <div class="leadership-year">2024–</div>
+      </div>
+
+      <div class="leadership-item">
+        <div>
+          <div class="leadership-title">Research Mentor — IIT Kharagpur</div>
+          <div class="leadership-desc">Mentored M.Tech., B.Tech., and Dual Degree students on graph ML projects</div>
+        </div>
+        <div class="leadership-year">Ongoing</div>
+      </div>
+
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Awards &amp; Honors</h2>
+        <div class="section-line"></div>
+        <span class="section-num">07</span>
+      </div>
+
+      <div class="awards-list">
+
+        <div class="award-item">
+          <i class="fas fa-plane-departure award-icon"></i>
+          <div class="award-text"><strong>Travel Grant Award</strong> — CODS Conference, IISER Pune</div>
+          <div class="award-year">2025</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-plane-departure award-icon"></i>
+          <div class="award-text"><strong>Travel Grant Award</strong> — IndoML Conference, IIT Bombay</div>
+          <div class="award-year">2023</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-plane-departure award-icon"></i>
+          <div class="award-text"><strong>Travel Grant Award</strong> — COMSNETS Conference, Bangalore</div>
+          <div class="award-year">2023</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-trophy award-icon"></i>
+          <div class="award-text"><strong>Best Project Award</strong> — M.Tech., CSE, NIT Durgapur</div>
+          <div class="award-year">2023</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-medal award-icon"></i>
+          <div class="award-text"><strong>2nd Rank</strong> — Ph.D. Comprehensive Exam, IIT Kharagpur</div>
+          <div class="award-year">2023</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-medal award-icon"></i>
+          <div class="award-text"><strong>2nd Rank</strong> — M.Tech., CSE, NIT Durgapur</div>
+          <div class="award-year">2023</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-medal award-icon"></i>
+          <div class="award-text"><strong>2nd Rank</strong> — B.Tech., CSE, Academy of Technology</div>
+          <div class="award-year">2021</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-star award-icon"></i>
+          <div class="award-text"><strong>GATE 2021</strong> — All India Score 527 · Percentile 96.42</div>
+          <div class="award-year">2021</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-award award-icon"></i>
+          <div class="award-text"><strong>ICICI Prudential Chairman Circle Child Scholarship</strong> — Remarkable Academic Excellence</div>
+          <div class="award-year">2017</div>
+        </div>
+
+        <div class="award-item">
+          <i class="fas fa-medal award-icon"></i>
+          <div class="award-text"><strong>2nd Rank</strong> — Higher Secondary, Science Dept., BCBBV</div>
+          <div class="award-year">2017</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references" class="section">
+      <div class="section-header">
+        <h2 class="section-title">References</h2>
+        <div class="section-line"></div>
+        <span class="section-num">08</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="pub-card" style="border-left-color:var(--gold);">
+          <div style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:4px;">
+            <a href="https://sites.google.com/site/saptarshighosh/" target="_blank" style="color:inherit;text-decoration:none;">Prof. Saptarshi Ghosh</a>
+          </div>
+          <div style="font-size:0.82rem;color:var(--ink-muted);">Ph.D. Supervisor</div>
+          <div style="font-size:0.82rem;color:var(--ink-muted);">Associate Professor, CSE, IIT Kharagpur</div>
+          <div style="margin-top:8px;font-family:var(--mono);font-size:0.75rem;">
+            <a href="mailto:saptarshi@cse.iitkgp.ac.in" style="color:var(--accent-glow);text-decoration:none;">saptarshi@cse.iitkgp.ac.in</a>
+          </div>
+        </div>
+        <div class="pub-card" style="border-left-color:var(--gold);">
+          <div style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:4px;">
+            <a href="https://cse.iitkgp.ac.in/~abhijnan/" target="_blank" style="color:inherit;text-decoration:none;">Prof. Abhijnan Chakraborty</a>
+          </div>
+          <div style="font-size:0.82rem;color:var(--ink-muted);">Ph.D. Collaborator</div>
+          <div style="font-size:0.82rem;color:var(--ink-muted);">Assistant Professor, CSE, IIT Kharagpur</div>
+          <div style="margin-top:8px;font-family:var(--mono);font-size:0.75rem;">
+            <a href="mailto:abhijnan@cse.iitkgp.ac.in" style="color:var(--accent-glow);text-decoration:none;">abhijnan@cse.iitkgp.ac.in</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Koyena Chowdhury · IIT Kharagpur ·
+    <a href="mailto:koyenachowdhury02@gmail.com">koyenachowdhury02@gmail.com</a>
+  </p>
+  <p style="margin-top:8px;opacity:0.5;">Built for GitHub Pages · Last updated June 2025</p>
+</footer>
+
+<a class="back-top" href="#" id="backTop" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</a>
+
+<script>
+  // ─── SCROLL PROGRESS BAR ───
+  const bar = document.getElementById('progressBar');
+  const backTop = document.getElementById('backTop');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = scrolled + '%';
+
+    if (window.scrollY > 400) {
+      backTop.classList.add('show');
+    } else {
+      backTop.classList.remove('show');
+    }
+  });
+
+  // ─── INTERSECTION OBSERVER FOR SECTIONS ───
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -50px 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // ─── ACTIVE NAV LINK ───
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionEls = document.querySelectorAll('section[id]');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sectionEls.forEach(s => navObserver.observe(s));
+
+  // ─── STAGGER SIDEBAR CARDS ───
+  document.querySelectorAll('.sidebar-card').forEach((card, i) => {
+    card.style.animationDelay = `${i * 0.1}s`;
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+title: Koyena Chowdhury
+description: Ph.D. Senior Research Fellow, CSE, IIT Kharagpur | AI for Transportation · Graph Neural Networks · Complex Networks
+url: "https://koyenachowdhury.github.io"
+baseurl: ""
+
+author:
+  name: Koyena Chowdhury
+  email: koyenachowdhury02@gmail.com
+  institution: IIT Kharagpur
+
+theme: null  # Using custom HTML
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO
+twitter:
+  card: summary_large_image
+  username: cnerg
+
+social:
+  links:
+    - https://www.linkedin.com/in/koyena-chowdhury-bb0b53292/
+    - https://scholar.google.com/citations?user=HAjNEHsAAAAJ&hl
+    - https://github.com/koyenachowdhury
